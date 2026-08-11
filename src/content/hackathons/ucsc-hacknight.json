@@ -1,0 +1,17 @@
+{
+  "title": "UCSC HackNight",
+  "slug": "ucsc-hacknight",
+  "organizerName": "UCSC Tech Society",
+  "organizerUniversity": "University of Colombo School of Computing",
+  "description": "An overnight, fully remote hackathon aimed at first- and second-year students building their first real project. Lightweight rules, beginner-friendly problem statements, and live Discord mentoring throughout the night.",
+  "bannerImage": "/banners/ucsc-hacknight.png",
+  "externalUrl": "https://hacknight.ucsc.cmb.ac.lk",
+  "startDate": "2026-11-07",
+  "endDate": "2026-11-08",
+  "mode": "online",
+  "whoCanParticipate": "First- and second-year undergraduates from any Sri Lankan university. No prior hackathon experience needed.",
+  "duration": "12 hrs",
+  "tags": ["Beginner-friendly", "Web Dev"],
+  "status": "upcoming",
+  "featured": false
+}

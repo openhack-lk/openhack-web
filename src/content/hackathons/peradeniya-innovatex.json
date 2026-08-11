@@ -1,0 +1,18 @@
+{
+  "title": "Peradeniya InnovateX",
+  "slug": "peradeniya-innovatex",
+  "organizerName": "Engineering Faculty Tech Union",
+  "organizerUniversity": "University of Peradeniya",
+  "description": "A hybrid hackathon centered on agri-tech and rural innovation, reflecting Peradeniya's engineering and agriculture research strengths. Regional teams could join a satellite site in Kandy while judging happened centrally.",
+  "bannerImage": "/banners/peradeniya-innovatex.png",
+  "externalUrl": "https://innovatex.pdn.ac.lk",
+  "startDate": "2026-03-13",
+  "endDate": "2026-03-15",
+  "mode": "hybrid",
+  "location": "Faculty of Engineering, University of Peradeniya + Kandy satellite site",
+  "whoCanParticipate": "Open to undergraduates from any faculty, not just engineering - agri-tech teams especially encouraged.",
+  "duration": "48 hrs",
+  "tags": ["AgriTech", "Sustainability"],
+  "status": "past",
+  "featured": false
+}

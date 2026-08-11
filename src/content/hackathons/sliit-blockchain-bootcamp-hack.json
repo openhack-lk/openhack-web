@@ -1,0 +1,16 @@
+{
+  "title": "SLIIT Blockchain Bootcamp Hack",
+  "slug": "sliit-blockchain-bootcamp-hack",
+  "organizerName": "SLIIT Blockchain Club",
+  "organizerUniversity": "Sri Lanka Institute of Information Technology",
+  "description": "A five-day remote bootcamp-then-hack: two days of smart-contract workshops followed by a three-day build sprint on testnet. No prior Solidity experience assumed going in.",
+  "externalUrl": "https://blockchain.sliit.lk/bootcamp-hack",
+  "startDate": "2026-08-09",
+  "endDate": "2026-08-13",
+  "mode": "online",
+  "whoCanParticipate": "Open to all undergraduates. No prior blockchain experience required.",
+  "duration": "5 days",
+  "tags": ["Blockchain", "Web3"],
+  "status": "ongoing",
+  "featured": false
+}

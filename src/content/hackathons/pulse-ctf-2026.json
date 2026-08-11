@@ -1,0 +1,16 @@
+{
+  "title": "PulseCTF 2026",
+  "slug": "pulse-ctf-2026",
+  "organizerName": "IIT Cybersecurity Society",
+  "organizerUniversity": "Informatics Institute of Technology",
+  "description": "A 24-hour jeopardy-style capture-the-flag competition covering web exploitation, reverse engineering, cryptography and forensics. Open to solo hackers and teams of up to 4, with a live scoreboard throughout.",
+  "externalUrl": "https://pulsectf.iit.ac.lk",
+  "startDate": "2026-09-05",
+  "endDate": "2026-09-06",
+  "mode": "online",
+  "whoCanParticipate": "Any Sri Lankan undergraduate with basic security fundamentals. Solo or teams of up to 4.",
+  "duration": "24 hrs",
+  "tags": ["CTF", "Cybersecurity"],
+  "status": "upcoming",
+  "featured": false
+}

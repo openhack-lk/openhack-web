@@ -1,0 +1,16 @@
+{
+  "title": "UCSC Fintech Sprint",
+  "slug": "ucsc-fintech-sprint",
+  "organizerName": "UCSC Tech Society",
+  "organizerUniversity": "University of Colombo School of Computing",
+  "description": "A remote sprint building on top of a sandboxed local payments API, aimed at digital-finance access for underbanked communities. Mentors from two Colombo fintech startups reviewed final submissions.",
+  "externalUrl": "https://fintechsprint.ucsc.cmb.ac.lk",
+  "startDate": "2026-04-18",
+  "endDate": "2026-04-19",
+  "mode": "online",
+  "whoCanParticipate": "Open to undergraduates from any Sri Lankan university. Teams of 2-4.",
+  "duration": "36 hrs",
+  "tags": ["Fintech", "Open Track"],
+  "status": "past",
+  "featured": false
+}

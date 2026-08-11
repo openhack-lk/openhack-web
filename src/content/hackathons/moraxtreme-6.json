@@ -1,0 +1,18 @@
+{
+  "title": "MoraXtreme 6.0",
+  "slug": "moraxtreme-6",
+  "organizerName": "IEEE Student Branch",
+  "organizerUniversity": "University of Moratuwa",
+  "description": "A hardware-meets-software hackathon run by the IEEE Student Branch, pairing embedded systems challenges with a software track. Teams get access to a sponsor-provided hardware lab for the full 24 hours.",
+  "externalUrl": "https://moraxtreme.ieeemoratuwa.lk",
+  "startDate": "2026-09-19",
+  "endDate": "2026-09-20",
+  "mode": "onsite",
+  "location": "Faculty of Engineering, University of Moratuwa",
+  "whoCanParticipate": "Open to all undergraduates. At least one team member should have basic embedded systems experience.",
+  "duration": "24 hrs",
+  "tags": ["Hardware", "IoT", "Embedded Systems"],
+  "status": "upcoming",
+  "featured": false,
+  "themeColor": "#dc2626"
+}

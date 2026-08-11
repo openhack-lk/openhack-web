@@ -1,0 +1,65 @@
+---
+export type BadgeKind = 'mode' | 'status' | 'tag';
+
+interface Props {
+  kind: BadgeKind;
+  value: string;
+  class?: string;
+}
+
+const { kind, value, class: className = '' } = Astro.props;
+
+const modeStyles: Record<string, string> = {
+  online: 'bg-sky-500/15 text-sky-100 ring-sky-300/30',
+  onsite: 'bg-violet-500/15 text-violet-100 ring-violet-300/30',
+  hybrid: 'bg-fuchsia-500/15 text-fuchsia-100 ring-fuchsia-300/30',
+};
+
+const statusStyles: Record<string, string> = {
+  upcoming: 'bg-accent-500/20 text-accent-50 ring-accent-300/30',
+  ongoing: 'bg-rose-500/20 text-rose-50 ring-rose-300/30',
+  past: 'bg-white/10 text-white/80 ring-white/25',
+};
+
+const dotStyles: Record<string, string> = {
+  upcoming: 'bg-accent-400',
+  ongoing: 'bg-rose-400',
+  past: 'bg-white/50',
+};
+
+const labels: Record<string, string> = {
+  online: 'Online',
+  onsite: 'Onsite',
+  hybrid: 'Hybrid',
+  upcoming: 'Upcoming',
+  ongoing: 'Ongoing',
+  past: 'Past',
+};
+
+const styleMap = kind === 'mode' ? modeStyles : kind === 'status' ? statusStyles : {};
+const pillClasses =
+  kind === 'tag'
+    ? 'bg-surface text-text-muted ring-border'
+    : (styleMap[value] ?? 'bg-white/10 text-white ring-white/25');
+const label = kind === 'tag' ? value : (labels[value] ?? value);
+---
+
+<span
+  class:list={[
+    'inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[0.7rem] font-semibold tracking-wide ring-1 ring-inset backdrop-blur-sm',
+    pillClasses,
+    className,
+  ]}
+>
+  {
+    kind === 'status' && (
+      <span class="relative flex h-1.5 w-1.5">
+        {value === 'ongoing' && (
+          <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-rose-400 opacity-75" />
+        )}
+        <span class:list={['relative inline-flex h-1.5 w-1.5 rounded-full', dotStyles[value] ?? 'bg-white/50']} />
+      </span>
+    )
+  }
+  {label}
+</span>

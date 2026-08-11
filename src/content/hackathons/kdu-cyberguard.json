@@ -1,0 +1,23 @@
+{
+  "title": "KDU CyberGuard Hackathon",
+  "slug": "kdu-cyberguard",
+  "organizerName": "Faculty of Computing",
+  "organizerUniversity": "General Sir John Kotelawala Defence University",
+  "description": "A national-security-flavoured hackathon focused on defensive tooling: intrusion detection, secure infrastructure and incident-response automation. Runs on KDU's Ratmalana campus with input from military cybersecurity units.",
+  "externalUrl": "https://cyberguard.kdu.ac.lk",
+  "startDate": "2026-10-24",
+  "endDate": "2026-10-25",
+  "mode": "onsite",
+  "location": "KDU Southern Campus, Ratmalana",
+  "whoCanParticipate": "Open to undergraduates from any Sri Lankan university. Teams of 3-5.",
+  "phases": [
+    { "name": "Phase 1: Registration & Team Formation", "when": "15-30 September 2026" },
+    { "name": "Phase 2: Online Preliminary CTF", "when": "5 October 2026", "duration": "8 hrs" },
+    { "name": "Phase 3: Shortlist Announcement", "when": "10 October 2026" },
+    { "name": "Final: On-Site Defence Challenge", "when": "24-25 October 2026", "duration": "36 hrs" }
+  ],
+  "tags": ["Cybersecurity", "GovTech"],
+  "status": "upcoming",
+  "featured": false,
+  "themeColor": "#1e2a5e"
+}

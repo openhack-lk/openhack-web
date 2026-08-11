@@ -1,0 +1,17 @@
+{
+  "title": "SEDS SLIIT Space Apps Weekend",
+  "slug": "seds-sliit-space-apps",
+  "organizerName": "SEDS SLIIT Chapter",
+  "organizerUniversity": "Sri Lanka Institute of Information Technology",
+  "description": "A local space-apps-style weekend using open satellite and earth-observation datasets - mission-planning tools, orbital visualisers and disaster-response dashboards were all fair game.",
+  "externalUrl": "https://spaceapps.sedssliit.lk",
+  "startDate": "2026-03-07",
+  "endDate": "2026-03-08",
+  "mode": "onsite",
+  "location": "SLIIT Malabe Campus",
+  "whoCanParticipate": "Open to undergraduates from any Sri Lankan university, no aerospace background required.",
+  "duration": "48 hrs",
+  "tags": ["Aerospace", "Open Track"],
+  "status": "past",
+  "featured": false
+}

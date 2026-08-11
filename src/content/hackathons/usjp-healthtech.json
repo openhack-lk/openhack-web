@@ -1,0 +1,17 @@
+{
+  "title": "USJP HealthTech Hackathon",
+  "slug": "usjp-healthtech",
+  "organizerName": "Faculty of Medical Sciences Tech Cell",
+  "organizerUniversity": "University of Sri Jayewardenepura",
+  "description": "A cross-disciplinary hackathon pairing medical and computing students on patient-facing tools - appointment access, medication reminders and rural clinic record-keeping among past themes. Clinicians sit on the judging panel.",
+  "externalUrl": "https://healthtech.sjp.ac.lk",
+  "startDate": "2026-10-03",
+  "endDate": "2026-10-04",
+  "mode": "hybrid",
+  "location": "Faculty of Medical Sciences, University of Sri Jayewardenepura",
+  "whoCanParticipate": "Open to undergraduates from any faculty; medical students especially encouraged to team up with developers.",
+  "duration": "30 hrs",
+  "tags": ["HealthTech", "Social Impact"],
+  "status": "upcoming",
+  "featured": false
+}

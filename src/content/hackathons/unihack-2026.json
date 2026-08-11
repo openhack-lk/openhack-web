@@ -1,0 +1,23 @@
+{
+  "title": "UniHack 2026",
+  "slug": "unihack-2026",
+  "organizerName": "UniHack Committee",
+  "organizerUniversity": "University of Moratuwa",
+  "description": "Sri Lanka's largest inter-university hackathon returns for its sixth edition, bringing together 500+ students to build products across AI, fintech, and climate tech. Expect mentor sessions from local startups, a Rs. 1M prize pool, and an on-campus finale.",
+  "bannerImage": "/banners/unihack-2026.png",
+  "externalUrl": "https://unihack.lk",
+  "startDate": "2026-10-16",
+  "endDate": "2026-10-18",
+  "mode": "hybrid",
+  "location": "Faculty of IT, University of Moratuwa",
+  "whoCanParticipate": "Open to all undergraduates from any Sri Lankan university. Teams of 2-4.",
+  "phases": [
+    { "name": "Phase 1: Applications & Idea Submission", "when": "1-15 September 2026" },
+    { "name": "Phase 2: Online Qualifiers", "when": "20-21 September 2026", "duration": "24 hrs" },
+    { "name": "Final: On-Campus Finale", "when": "16-18 October 2026", "duration": "48 hrs" }
+  ],
+  "tags": ["AI", "Fintech", "Open Track"],
+  "status": "upcoming",
+  "featured": true,
+  "themeColor": "#7c3aed"
+}

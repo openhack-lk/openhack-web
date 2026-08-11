@@ -1,0 +1,17 @@
+{
+  "title": "AI Build Night with Cursor",
+  "slug": "ai-build-night-cursor",
+  "organizerName": "Google Developer Group UCSC",
+  "organizerUniversity": "University of Colombo School of Computing",
+  "description": "A single-evening build session on AI-assisted coding - Cursor provided temporary Pro licenses and ran a live workshop before students shipped a small project of their choice.",
+  "externalUrl": "https://gdg.ucsc.lk/ai-build-night",
+  "startDate": "2026-08-20",
+  "endDate": "2026-08-20",
+  "mode": "online",
+  "whoCanParticipate": "Open to all undergraduates. Bring a laptop - Cursor Pro licenses provided for the night.",
+  "partners": ["Cursor", "Google Developer Groups"],
+  "duration": "4 hrs",
+  "tags": ["AI", "Dev Tools", "Beginner-friendly"],
+  "status": "upcoming",
+  "featured": false
+}

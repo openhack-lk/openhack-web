@@ -1,0 +1,51 @@
+---
+import { getUniversityLogos } from '../lib/universities';
+
+const logos = getUniversityLogos();
+const track = [...logos, ...logos];
+---
+
+<section class="relative overflow-hidden border-b border-border py-8">
+  <p class="text-center text-xs font-semibold uppercase tracking-wider text-text-muted">
+    Hackathons from universities across Sri Lanka
+  </p>
+
+  <div class="relative mt-6 [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
+    <div class="marquee-track flex w-max items-center gap-16">
+      {
+        track.map((uni) => (
+          <div class="flex h-11 w-28 shrink-0 items-center justify-center">
+            <img
+              src={uni.logo}
+              alt={uni.name}
+              loading="lazy"
+              decoding="async"
+              class="max-h-11 max-w-full object-contain"
+            />
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .marquee-track {
+    animation: marquee-scroll 34s linear infinite;
+  }
+
+  @keyframes marquee-scroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .marquee-track {
+      animation: none;
+    }
+  }
+</style>

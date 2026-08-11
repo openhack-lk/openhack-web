@@ -1,0 +1,17 @@
+{
+  "title": "USJP Designathon",
+  "slug": "usjp-designathon",
+  "organizerName": "Department of Information Technology",
+  "organizerUniversity": "University of Sri Jayewardenepura",
+  "description": "A product-design-first hackathon: teams pitch, prototype and usability-test a digital product in 48 hours before writing a line of production code. Judged on research depth and interaction design, not just polish.",
+  "externalUrl": "https://designathon.sjp.ac.lk",
+  "startDate": "2026-11-14",
+  "endDate": "2026-11-15",
+  "mode": "hybrid",
+  "location": "Faculty of Applied Sciences, University of Sri Jayewardenepura",
+  "whoCanParticipate": "Open to undergraduates from any discipline - design, business or engineering. Teams of 2-4.",
+  "duration": "48 hrs",
+  "tags": ["Designathon", "UX", "Product"],
+  "status": "upcoming",
+  "featured": false
+}

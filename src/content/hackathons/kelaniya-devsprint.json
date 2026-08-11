@@ -1,0 +1,16 @@
+{
+  "title": "Kelaniya DevSprint",
+  "slug": "kelaniya-devsprint",
+  "organizerName": "Department of Computer Science",
+  "organizerUniversity": "University of Kelaniya",
+  "description": "A compact, fully online 24-hour sprint open to all Sri Lankan undergraduates, run entirely over Discord and GitHub. Small teams, no swag, just a straightforward build-and-ship weekend with a strict scope-lock rule.",
+  "externalUrl": "https://devsprint.kln.ac.lk",
+  "startDate": "2026-01-24",
+  "endDate": "2026-01-25",
+  "mode": "online",
+  "whoCanParticipate": "Any Sri Lankan undergraduate. Solo entries allowed alongside teams of up to 3.",
+  "duration": "24 hrs",
+  "tags": ["Open Track", "Student-run"],
+  "status": "past",
+  "featured": false
+}

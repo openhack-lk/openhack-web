@@ -1,0 +1,22 @@
+{
+  "title": "Innovate with Ballerina",
+  "slug": "innovate-with-ballerina",
+  "organizerName": "IEEE Student Branch, University of Moratuwa",
+  "organizerUniversity": "University of Moratuwa",
+  "description": "A cloud-integration hackathon built around WSO2's Ballerina language - teams wire up real APIs and services over a weekend, with WSO2 engineers running the opening workshop and sitting on the judging panel.",
+  "externalUrl": "https://innovatewithballerina.ieeemoratuwa.lk",
+  "startDate": "2026-09-12",
+  "endDate": "2026-09-13",
+  "mode": "hybrid",
+  "location": "Faculty of Engineering, University of Moratuwa",
+  "whoCanParticipate": "Open to undergraduates from any Sri Lankan university. Teams of 2-4.",
+  "partners": ["WSO2"],
+  "phases": [
+    { "name": "Phase 1: Idea Pitch", "when": "1-5 September 2026" },
+    { "name": "Final: Build Weekend", "when": "12-13 September 2026", "duration": "30 hrs" }
+  ],
+  "tags": ["Cloud", "API", "Ballerina"],
+  "status": "upcoming",
+  "featured": false,
+  "themeColor": "#ea580c"
+}

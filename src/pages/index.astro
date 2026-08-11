@@ -1,0 +1,201 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../components/Layout.astro';
+import HackathonCard from '../components/HackathonCard.astro';
+import HeroCollage from '../components/HeroCollage.astro';
+import UniversityMarquee from '../components/UniversityMarquee.astro';
+import PartnersStrip from '../components/PartnersStrip.astro';
+import Pagination from '../components/Pagination.astro';
+import SearchBar from '../components/SearchBar.astro';
+import Icon from '../components/Icon.astro';
+import {
+  sortForListing,
+  filterByStatus,
+  parseStatusFilter,
+  paginate,
+  parsePage,
+  type StatusFilter,
+} from '../lib/hackathons';
+
+const PAGE_SIZE = 10;
+
+const allEntries = sortForListing(await getCollection('hackathons'));
+
+const activeStatus = parseStatusFilter(Astro.url.searchParams.get('status') ?? undefined);
+const filtered = filterByStatus(allEntries, activeStatus);
+
+const featured = filtered.filter((e) => e.data.featured);
+const restAll = filtered.filter((e) => !e.data.featured);
+
+const requestedPage = parsePage(Astro.url.searchParams.get('page') ?? undefined);
+const { items: rest, currentPage, totalPages } = paginate(restAll, requestedPage, PAGE_SIZE);
+
+function pageHref(page: number, status: StatusFilter = activeStatus): string {
+  const params = new URLSearchParams();
+  if (status !== 'all') params.set('status', status);
+  if (page > 1) params.set('page', String(page));
+  const query = params.toString();
+  return `/${query ? `?${query}` : ''}#hackathons`;
+}
+
+const tabs: { label: string; value: StatusFilter }[] = [
+  { label: 'All', value: 'all' },
+  { label: 'Upcoming', value: 'upcoming' },
+  { label: 'Ongoing', value: 'ongoing' },
+  { label: 'Past', value: 'past' },
+];
+
+const universities = [...new Set(allEntries.map((e) => e.data.organizerUniversity))];
+
+const stats = [
+  { label: 'Hackathons tracked', value: allEntries.length, icon: 'calendar' as const },
+  { label: 'Universities', value: universities.length, icon: 'users' as const },
+  { label: 'Cost to list yours', value: 'Free', icon: 'external' as const },
+];
+---
+
+<Layout
+  title="openhack.lk - Every hackathon in Sri Lanka, in one place"
+  description="A community-curated, open-source directory of hackathons happening across Sri Lanka. Browse upcoming, ongoing and past events from Moratuwa, SLIIT, UCSC, Peradeniya, Kelaniya and more."
+>
+  <section class="relative overflow-hidden border-b border-border">
+    <div class="pointer-events-none absolute inset-0">
+      <div
+        class="absolute -top-32 left-1/2 h-[560px] w-[900px] -translate-x-1/2 rounded-full bg-[radial-gradient(closest-side,color-mix(in_srgb,var(--color-accent-500)_22%,transparent),transparent)] blur-2xl"
+      >
+      </div>
+      <div
+        class="absolute -top-10 left-[10%] h-[280px] w-[280px] rounded-full bg-[radial-gradient(closest-side,color-mix(in_srgb,#4338ca_20%,transparent),transparent)] blur-3xl"
+      >
+      </div>
+      <div
+        class="absolute right-[8%] top-16 h-[260px] w-[260px] rounded-full bg-[radial-gradient(closest-side,color-mix(in_srgb,#15803d_18%,transparent),transparent)] blur-3xl"
+      >
+      </div>
+      <div class="bg-grid absolute inset-0"></div>
+      <div class="bg-noise absolute inset-0 opacity-[0.025] mix-blend-overlay"></div>
+    </div>
+
+    <HeroCollage />
+
+    <div class="relative mx-auto max-w-6xl px-4 py-24 text-center sm:px-6 sm:py-32 lg:px-8">
+      <span
+        class="animate-fade-up inline-flex items-center gap-2 rounded-full border border-border bg-surface/80 px-3 py-1 text-xs font-medium text-text-muted shadow-sm backdrop-blur"
+      >
+        <span class="relative flex h-1.5 w-1.5">
+          <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent-500 opacity-75"
+          ></span>
+          <span class="relative inline-flex h-1.5 w-1.5 rounded-full bg-accent-500"></span>
+        </span>
+        Open-source · Community-curated
+      </span>
+
+      <h1
+        class="animate-fade-up mx-auto mt-6 max-w-3xl text-balance text-5xl font-extrabold tracking-tight text-text sm:text-6xl md:text-7xl"
+        style="animation-delay: 60ms"
+      >
+        Every hackathon in Sri Lanka, <span class="text-accent-500">in one place.</span>
+      </h1>
+
+      <p
+        class="animate-fade-up mx-auto mt-6 max-w-xl text-balance text-base text-text-muted sm:text-lg"
+        style="animation-delay: 120ms"
+      >
+        We don't run registrations - we're a directory. Find the hackathon, click through, and sign up on the
+        organizer's own site.
+      </p>
+
+      <div
+        class="animate-fade-up mx-auto mt-12 flex max-w-xl flex-wrap items-stretch justify-center gap-3"
+        style="animation-delay: 180ms"
+      >
+        {
+          stats.map((stat) => (
+            <div class="flex min-w-[9.5rem] flex-1 items-center gap-3 rounded-2xl border border-border bg-surface/70 px-4 py-3 text-left backdrop-blur">
+              <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-accent-500/10 text-accent-600 dark:text-accent-400">
+                <Icon name={stat.icon} class="h-4 w-4" />
+              </span>
+              <div>
+                <p class="font-mono text-lg font-bold leading-none text-text">{stat.value}</p>
+                <p class="mt-1 text-xs text-text-muted">{stat.label}</p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+
+    </div>
+  </section>
+
+  <UniversityMarquee />
+  <PartnersStrip />
+
+  <section id="hackathons" class="mx-auto max-w-6xl scroll-mt-20 px-4 py-12 sm:px-6 lg:px-8">
+    <div class="flex flex-wrap items-center justify-between gap-4">
+      <h2 class="text-lg font-semibold text-text">Browse hackathons</h2>
+      <div class="w-full sm:w-80">
+        <SearchBar entries={allEntries} />
+      </div>
+    </div>
+
+    <div>
+      <div class="mt-6 flex flex-wrap gap-1 rounded-full border border-border bg-surface p-1 shadow-sm">
+        {
+          tabs.map((tab) => {
+            const isActive = tab.value === activeStatus;
+            const href = pageHref(1, tab.value);
+            return (
+              <a
+                href={href}
+                class:list={[
+                  'rounded-full px-3.5 py-1.5 text-sm font-medium transition-colors',
+                  isActive ? 'bg-accent-500 text-white' : 'text-text-muted hover:text-text',
+                ]}
+              >
+                {tab.label}
+              </a>
+            );
+          })
+        }
+      </div>
+
+      {
+        filtered.length === 0 && (
+          <p class="mt-16 text-center text-sm text-text-muted">No hackathons match this filter yet - check back soon.</p>
+        )
+      }
+
+      {
+        featured.length > 0 && (
+          <div class="mt-8">
+            <p class="mb-4 text-xs font-semibold uppercase tracking-wider text-text-muted">Featured</p>
+            <div class="grid gap-5 sm:grid-cols-2">
+              {featured.map((entry) => (
+                <HackathonCard entry={entry} featured />
+              ))}
+            </div>
+          </div>
+        )
+      }
+
+      {
+        rest.length > 0 && (
+          <div class="mt-10">
+            {featured.length > 0 && (
+              <p class="mb-4 text-xs font-semibold uppercase tracking-wider text-text-muted">
+                All hackathons
+                {restAll.length > 0 && <span class="normal-case tracking-normal"> · {restAll.length}</span>}
+              </p>
+            )}
+            <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+              {rest.map((entry) => (
+                <HackathonCard entry={entry} />
+              ))}
+            </div>
+            <Pagination currentPage={currentPage} totalPages={totalPages} makeHref={(page) => pageHref(page)} />
+          </div>
+        )
+      }
+    </div>
+  </section>
+</Layout>

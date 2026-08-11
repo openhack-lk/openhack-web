@@ -1,0 +1,21 @@
+{
+  "title": "SLIIT CodeFest 2026",
+  "slug": "sliit-codefest-2026",
+  "organizerName": "SLIIT Computer Society",
+  "organizerUniversity": "Sri Lanka Institute of Information Technology",
+  "description": "A 36-hour on-campus build sprint for SLIIT and open external teams, focused on practical software engineering over novelty. Judged by industry engineers from Colombo's product companies, with a strong emphasis on shipped, working demos.",
+  "bannerImage": "/banners/sliit-codefest-2026.png",
+  "externalUrl": "https://codefest.sliit.lk",
+  "startDate": "2026-08-08",
+  "endDate": "2026-08-12",
+  "mode": "onsite",
+  "location": "SLIIT Malabe Campus",
+  "whoCanParticipate": "SLIIT students get priority; a limited number of external undergraduate teams are also accepted.",
+  "phases": [
+    { "name": "Phase 1: Online Screening", "when": "1-5 August 2026", "duration": "72 hrs to submit" },
+    { "name": "Final: On-Campus Build", "when": "8-12 August 2026", "duration": "96 hrs" }
+  ],
+  "tags": ["Software Engineering", "Beginner-friendly"],
+  "status": "ongoing",
+  "featured": true
+}

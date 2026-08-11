@@ -1,0 +1,17 @@
+{
+  "title": "Moratuwa Mobile App Challenge",
+  "slug": "moratuwa-mobile-app-challenge",
+  "organizerName": "Mobile Dev Circle",
+  "organizerUniversity": "University of Moratuwa",
+  "description": "A 36-hour sprint to ship a working native or cross-platform mobile app around a rotating annual theme - this year's is everyday accessibility. Judged on a working install, not a slide deck.",
+  "externalUrl": "https://mobilechallenge.mrt.ac.lk",
+  "startDate": "2026-11-28",
+  "endDate": "2026-11-29",
+  "mode": "onsite",
+  "location": "Faculty of IT, University of Moratuwa",
+  "whoCanParticipate": "Open to undergraduates from any Sri Lankan university. Teams of 2-4.",
+  "duration": "36 hrs",
+  "tags": ["Mobile", "Accessibility"],
+  "status": "upcoming",
+  "featured": false
+}

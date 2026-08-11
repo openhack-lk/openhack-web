@@ -1,0 +1,18 @@
+{
+  "title": "KDU Defence Tech Challenge",
+  "slug": "kdu-defence-tech-challenge",
+  "organizerName": "Faculty of Computing",
+  "organizerUniversity": "General Sir John Kotelawala Defence University",
+  "description": "A govtech-flavoured hackathon on logistics, situational-awareness dashboards and secure communications tooling, run with observers from public-sector IT units. All submissions stayed unclassified and open.",
+  "externalUrl": "https://defencetech.kdu.ac.lk",
+  "startDate": "2025-11-15",
+  "endDate": "2025-11-16",
+  "mode": "onsite",
+  "location": "KDU Southern Campus, Ratmalana",
+  "whoCanParticipate": "Open to undergraduates from any Sri Lankan university. Teams of 3-5.",
+  "duration": "36 hrs",
+  "tags": ["GovTech", "Open Track"],
+  "status": "past",
+  "featured": false,
+  "themeColor": "#1e2a5e"
+}

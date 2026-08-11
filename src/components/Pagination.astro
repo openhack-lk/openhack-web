@@ -1,0 +1,74 @@
+---
+import Icon from './Icon.astro';
+
+interface Props {
+  currentPage: number;
+  totalPages: number;
+  makeHref: (page: number) => string;
+}
+
+const { currentPage, totalPages, makeHref } = Astro.props;
+
+function pageWindow(current: number, total: number): (number | 'ellipsis')[] {
+  const pages = new Set<number>([1, total, current, current - 1, current + 1]);
+  const sorted = [...pages].filter((p) => p >= 1 && p <= total).sort((a, b) => a - b);
+
+  const result: (number | 'ellipsis')[] = [];
+  let prev = 0;
+  for (const p of sorted) {
+    if (prev && p - prev > 1) result.push('ellipsis');
+    result.push(p);
+    prev = p;
+  }
+  return result;
+}
+
+const pages = pageWindow(currentPage, totalPages);
+---
+
+{
+  totalPages > 1 && (
+    <nav class="mt-10 flex items-center justify-center gap-1.5" aria-label="Pagination">
+      <a
+        href={currentPage > 1 ? makeHref(currentPage - 1) : undefined}
+        aria-disabled={currentPage === 1}
+        class:list={[
+          'flex h-9 w-9 items-center justify-center rounded-full border border-border text-text-muted transition-colors',
+          currentPage === 1 ? 'pointer-events-none opacity-40' : 'hover:border-accent-500/40 hover:text-text',
+        ]}
+      >
+        <Icon name="arrow-right" class="h-3.5 w-3.5 rotate-180" />
+      </a>
+
+      {pages.map((p) =>
+        p === 'ellipsis' ? (
+          <span class="flex h-9 w-9 items-center justify-center text-sm text-text-muted">···</span>
+        ) : (
+          <a
+            href={makeHref(p)}
+            aria-current={p === currentPage ? 'page' : undefined}
+            class:list={[
+              'flex h-9 w-9 items-center justify-center rounded-full text-sm font-medium transition-colors',
+              p === currentPage ? 'bg-accent-500 text-white' : 'text-text-muted hover:bg-surface hover:text-text',
+            ]}
+          >
+            {p}
+          </a>
+        ),
+      )}
+
+      <a
+        href={currentPage < totalPages ? makeHref(currentPage + 1) : undefined}
+        aria-disabled={currentPage === totalPages}
+        class:list={[
+          'flex h-9 w-9 items-center justify-center rounded-full border border-border text-text-muted transition-colors',
+          currentPage === totalPages
+            ? 'pointer-events-none opacity-40'
+            : 'hover:border-accent-500/40 hover:text-text',
+        ]}
+      >
+        <Icon name="arrow-right" class="h-3.5 w-3.5" />
+      </a>
+    </nav>
+  )
+}

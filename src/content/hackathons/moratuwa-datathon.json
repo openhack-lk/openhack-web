@@ -1,0 +1,17 @@
+{
+  "title": "Moratuwa Datathon",
+  "slug": "moratuwa-datathon",
+  "organizerName": "Data Science Society",
+  "organizerUniversity": "University of Moratuwa",
+  "description": "Teams work against a released Sri Lankan public-sector dataset to build a model and a short policy brief in 30 hours. Past editions have used transport, weather and agricultural yield data.",
+  "externalUrl": "https://datathon.mrt.ac.lk",
+  "startDate": "2026-05-09",
+  "endDate": "2026-05-10",
+  "mode": "onsite",
+  "location": "Faculty of IT, University of Moratuwa",
+  "whoCanParticipate": "Open to undergraduates with some Python/statistics background. Teams of 2-4.",
+  "duration": "30 hrs",
+  "tags": ["Datathon", "Data Science"],
+  "status": "past",
+  "featured": false
+}

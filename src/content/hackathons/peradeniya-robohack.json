@@ -1,0 +1,17 @@
+{
+  "title": "Peradeniya RoboHack",
+  "slug": "peradeniya-robohack",
+  "organizerName": "Robotics and Automation Society",
+  "organizerUniversity": "University of Peradeniya",
+  "description": "Teams build and program a small autonomous rover to complete an obstacle course revealed on the day. A limited number of starter kits were available to loan for teams without their own hardware.",
+  "externalUrl": "https://robohack.pdn.ac.lk",
+  "startDate": "2026-02-21",
+  "endDate": "2026-02-22",
+  "mode": "onsite",
+  "location": "Faculty of Engineering, University of Peradeniya",
+  "whoCanParticipate": "Open to undergraduates from any faculty. Teams of 2-4, at least one member with basic electronics experience recommended.",
+  "duration": "24 hrs",
+  "tags": ["Robotics", "Hardware"],
+  "status": "past",
+  "featured": false
+}

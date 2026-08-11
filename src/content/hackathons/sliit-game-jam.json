@@ -1,0 +1,18 @@
+{
+  "title": "SLIIT Game Jam",
+  "slug": "sliit-game-jam",
+  "organizerName": "SLIIT Game Development Community",
+  "organizerUniversity": "Sri Lanka Institute of Information Technology",
+  "description": "A 48-hour game jam built around a surprise theme revealed at kickoff. Any engine is welcome, from Unity and Godot to a from-scratch canvas game; playable builds are demoed live to a panel of local studio devs.",
+  "externalUrl": "https://gamejam.sliit.lk",
+  "startDate": "2026-12-05",
+  "endDate": "2026-12-06",
+  "mode": "onsite",
+  "location": "SLIIT Malabe Campus",
+  "whoCanParticipate": "Open to all undergraduates, artists and designers included. Teams of 1-5.",
+  "duration": "48 hrs",
+  "tags": ["Game Jam", "Beginner-friendly"],
+  "status": "upcoming",
+  "featured": false,
+  "themeColor": "#7c3aed"
+}

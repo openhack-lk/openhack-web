@@ -1,0 +1,16 @@
+{
+  "title": "IIT Open Source Weekend",
+  "slug": "iit-open-source-weekend",
+  "organizerName": "IIT Open Source Society",
+  "organizerUniversity": "Informatics Institute of Technology",
+  "description": "Not a build-from-scratch hackathon - teams pick a real open-source project, land meaningful pull requests over the weekend, and present what shipped. A good first hackathon for people who'd rather ship than pitch.",
+  "externalUrl": "https://oss-weekend.iit.ac.lk",
+  "startDate": "2026-08-29",
+  "endDate": "2026-08-30",
+  "mode": "online",
+  "whoCanParticipate": "Any Sri Lankan undergraduate, first-timers welcome. Solo or teams of up to 3.",
+  "duration": "48 hrs",
+  "tags": ["Open Source", "Beginner-friendly"],
+  "status": "upcoming",
+  "featured": false
+}

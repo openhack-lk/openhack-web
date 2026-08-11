@@ -1,0 +1,164 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { formatDateRange } from '../lib/dates';
+import { getUniversityIdentity } from '../lib/universities';
+
+interface Props {
+  entries: CollectionEntry<'hackathons'>[];
+}
+
+const { entries } = Astro.props;
+
+const monthName = (d: Date) => d.toLocaleDateString('en-GB', { month: 'long', timeZone: 'UTC' });
+
+const index = entries.map((entry) => {
+  const { title, slug, organizerName, organizerUniversity, partners, tags, status, mode, startDate, endDate } =
+    entry.data;
+  const identity = getUniversityIdentity(organizerUniversity);
+  const searchText = [
+    title,
+    organizerName,
+    organizerUniversity,
+    identity.shortCode,
+    ...partners,
+    ...tags,
+    monthName(startDate),
+    monthName(endDate),
+    status,
+    mode,
+  ]
+    .join(' ')
+    .toLowerCase();
+
+  return {
+    slug,
+    title,
+    organizerName,
+    organizerUniversity,
+    universityShort: identity.shortCode,
+    universityColor: identity.color,
+    dateLabel: formatDateRange(startDate, endDate),
+    searchText,
+  };
+});
+---
+
+<div class="relative">
+  <div class="relative">
+    <span class="pointer-events-none absolute left-3.5 top-1/2 -translate-y-1/2 text-text-muted">
+      <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="11" cy="11" r="7" />
+        <path d="m21 21-4.3-4.3" stroke-linecap="round" />
+      </svg>
+    </span>
+    <input
+      id="hackathon-search"
+      type="search"
+      placeholder="Search university, organizer, partner, month..."
+      autocomplete="off"
+      class="w-full rounded-full border border-border bg-surface py-2.5 pl-10 pr-10 text-sm text-text placeholder:text-text-muted focus:border-accent-500/50 focus:outline-none"
+    />
+    <button
+      id="hackathon-search-clear"
+      type="button"
+      aria-label="Clear search"
+      class="absolute right-3 top-1/2 hidden -translate-y-1/2 text-text-muted transition-colors hover:text-text"
+    >
+      <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M18 6 6 18M6 6l12 12" stroke-linecap="round" />
+      </svg>
+    </button>
+  </div>
+
+  <div
+    id="hackathon-search-panel"
+    class="glass absolute inset-x-0 top-full z-30 mt-2 hidden max-h-96 overflow-y-auto rounded-2xl p-2 shadow-2xl shadow-black/10"
+  >
+    <p id="hackathon-search-empty" class="hidden px-3 py-6 text-center text-sm text-text-muted"></p>
+    <div id="hackathon-search-results" class="space-y-1"></div>
+  </div>
+</div>
+
+<script is:inline define:vars={{ index }}>
+  const input = document.getElementById('hackathon-search');
+  const clearBtn = document.getElementById('hackathon-search-clear');
+  const panel = document.getElementById('hackathon-search-panel');
+  const resultsEl = document.getElementById('hackathon-search-results');
+  const emptyEl = document.getElementById('hackathon-search-empty');
+
+  function escapeHtml(value) {
+    return value.replace(
+      /[&<>"']/g,
+      (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c],
+    );
+  }
+
+  function renderResults(matches) {
+    resultsEl.innerHTML = matches
+      .slice(0, 30)
+      .map(
+        (m) => `
+        <a href="/hackathons/${m.slug}/" class="flex items-center gap-3 rounded-xl px-3 py-2.5 transition-colors hover:bg-surface-hover">
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg text-[0.6rem] font-bold text-white" style="background:${m.universityColor}">
+            ${escapeHtml(m.universityShort.slice(0, 4))}
+          </span>
+          <span class="min-w-0 flex-1">
+            <span class="block truncate text-sm font-semibold text-text">${escapeHtml(m.title)}</span>
+            <span class="block truncate text-xs text-text-muted">${escapeHtml(m.organizerName)} &middot; ${escapeHtml(m.organizerUniversity)}</span>
+          </span>
+          <span class="shrink-0 text-xs text-text-muted">${escapeHtml(m.dateLabel)}</span>
+        </a>`,
+      )
+      .join('');
+  }
+
+  function runSearch(raw) {
+    const query = raw.trim().toLowerCase();
+
+    if (!query) {
+      clearBtn.classList.add('hidden');
+      panel.classList.add('hidden');
+      return;
+    }
+
+    clearBtn.classList.remove('hidden');
+    panel.classList.remove('hidden');
+
+    const matches = index.filter((entry) => entry.searchText.includes(query));
+
+    if (matches.length === 0) {
+      resultsEl.classList.add('hidden');
+      emptyEl.textContent = `No hackathons match "${raw.trim()}".`;
+      emptyEl.classList.remove('hidden');
+    } else {
+      emptyEl.classList.add('hidden');
+      resultsEl.classList.remove('hidden');
+      renderResults(matches);
+    }
+  }
+
+  input.addEventListener('input', (e) => runSearch(e.currentTarget.value));
+  input.addEventListener('focus', () => {
+    if (input.value.trim()) panel.classList.remove('hidden');
+  });
+
+  clearBtn.addEventListener('click', () => {
+    input.value = '';
+    runSearch('');
+    input.focus();
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('#hackathon-search') && !e.target.closest('#hackathon-search-panel')) {
+      panel.classList.add('hidden');
+    }
+  });
+
+  input.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      input.value = '';
+      runSearch('');
+      input.blur();
+    }
+  });
+</script>
