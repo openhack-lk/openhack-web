@@ -46,19 +46,14 @@ const label = kind === 'tag' ? value : (labels[value] ?? value);
 
 <span
   class:list={[
-    'inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[0.7rem] font-semibold tracking-wide ring-1 ring-inset backdrop-blur-sm',
+    'inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[0.7rem] font-semibold tracking-wide ring-1 ring-inset',
     pillClasses,
     className,
   ]}
 >
   {
     kind === 'status' && (
-      <span class="relative flex h-1.5 w-1.5">
-        {value === 'ongoing' && (
-          <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-rose-400 opacity-75" />
-        )}
-        <span class:list={['relative inline-flex h-1.5 w-1.5 rounded-full', dotStyles[value] ?? 'bg-white/50']} />
-      </span>
+      <span class:list={['h-1.5 w-1.5 rounded-full', dotStyles[value] ?? 'bg-white/50']} />
     )
   }
   {label}

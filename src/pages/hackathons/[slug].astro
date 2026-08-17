@@ -8,6 +8,7 @@ import { formatDateRange } from '../../lib/dates';
 import { getUniversityIdentity } from '../../lib/universities';
 import { getPartnerIdentity } from '../../lib/partners';
 import { sortForListing } from '../../lib/hackathons';
+import { withBase } from '../../lib/paths';
 
 export async function getStaticPaths() {
   const entries = await getCollection('hackathons');
@@ -52,7 +53,7 @@ const moreHackathons = sortForListing(
     <div class="relative aspect-[16/9] w-full overflow-hidden sm:aspect-[3/1]">
       {
         bannerImage ? (
-          <img src={bannerImage} alt={title} class="h-full w-full object-cover" />
+          <img src={withBase(bannerImage)} alt={title} class="h-full w-full object-cover" />
         ) : (
           <div class="relative flex h-full w-full items-center justify-center bg-[linear-gradient(160deg,color-mix(in_srgb,var(--uni)_88%,black_8%),color-mix(in_srgb,var(--uni)_28%,black_78%))]">
             <div class="bg-grid absolute inset-0 opacity-40" />
@@ -68,7 +69,7 @@ const moreHackathons = sortForListing(
       <div class="absolute inset-x-0 top-0 pt-4 sm:pt-6">
         <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <a
-            href="/"
+            href={withBase('/')}
             class="inline-flex items-center gap-1.5 rounded-full bg-black/40 px-3 py-1.5 text-xs font-medium text-white/90 ring-1 ring-white/15 backdrop-blur-sm transition-colors hover:bg-black/55"
           >
             <Icon name="arrow-right" class="h-3.5 w-3.5 rotate-180" />
@@ -180,7 +181,7 @@ const moreHackathons = sortForListing(
 
           {
             whoCanParticipate && (
-              <div class="glass mt-6 flex items-start gap-3 rounded-xl px-4 py-3.5">
+              <div class="mt-6 flex items-start gap-3 rounded-xl border border-border bg-surface px-4 py-3.5">
                 <span class="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-accent-500/10 text-accent-600 dark:text-accent-400">
                   <Icon name="users" class="h-3.5 w-3.5" />
                 </span>
@@ -208,11 +209,8 @@ const moreHackathons = sortForListing(
             href={externalUrl}
             target="_blank"
             rel="noopener noreferrer"
-            class="group relative flex items-center justify-center gap-2 overflow-hidden rounded-xl bg-accent-500 px-6 py-4 text-center text-base font-semibold text-white shadow-lg shadow-accent-500/25 transition-all hover:shadow-xl hover:shadow-accent-500/35"
+            class="group flex items-center justify-center gap-2 rounded-xl bg-accent-500 px-6 py-4 text-center text-base font-semibold text-white transition-colors hover:bg-accent-600"
           >
-            <span
-              class="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/15 to-transparent opacity-0 transition-opacity group-hover:opacity-100"
-            />
             <span class="relative">Visit official site</span>
             <Icon name="arrow-right" class="relative h-4 w-4 transition-transform group-hover:translate-x-1" />
           </a>

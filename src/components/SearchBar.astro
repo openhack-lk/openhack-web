@@ -72,14 +72,14 @@ const index = entries.map((entry) => {
 
   <div
     id="hackathon-search-panel"
-    class="glass absolute inset-x-0 top-full z-30 mt-2 hidden max-h-96 overflow-y-auto rounded-2xl p-2 shadow-2xl shadow-black/10"
+    class="absolute inset-x-0 top-full z-30 mt-2 hidden max-h-96 overflow-y-auto rounded-xl border border-border bg-surface p-2 shadow-lg shadow-black/5"
   >
     <p id="hackathon-search-empty" class="hidden px-3 py-6 text-center text-sm text-text-muted"></p>
     <div id="hackathon-search-results" class="space-y-1"></div>
   </div>
 </div>
 
-<script is:inline define:vars={{ index }}>
+<script is:inline define:vars={{ index, base: import.meta.env.BASE_URL.replace(/\/$/, '') }}>
   const input = document.getElementById('hackathon-search');
   const clearBtn = document.getElementById('hackathon-search-clear');
   const panel = document.getElementById('hackathon-search-panel');
@@ -98,7 +98,7 @@ const index = entries.map((entry) => {
       .slice(0, 30)
       .map(
         (m) => `
-        <a href="/hackathons/${m.slug}/" class="flex items-center gap-3 rounded-xl px-3 py-2.5 transition-colors hover:bg-surface-hover">
+        <a href="${base}/hackathons/${m.slug}/" class="flex items-center gap-3 rounded-xl px-3 py-2.5 transition-colors hover:bg-surface-hover">
           <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg text-[0.6rem] font-bold text-white" style="background:${m.universityColor}">
             ${escapeHtml(m.universityShort.slice(0, 4))}
           </span>

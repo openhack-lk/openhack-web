@@ -4,6 +4,7 @@ import Badge from './Badge.astro';
 import Icon from './Icon.astro';
 import { formatDateRange } from '../lib/dates';
 import { getUniversityIdentity } from '../lib/universities';
+import { withBase } from '../lib/paths';
 
 interface Props {
   entry: CollectionEntry<'hackathons'>;
@@ -19,25 +20,24 @@ const themeColor = entry.data.themeColor ?? identity.color;
 ---
 
 <a
-  href={`/hackathons/${entry.data.slug}/`}
+  href={withBase(`/hackathons/${entry.data.slug}/`)}
   style={`--uni: ${themeColor}`}
-  class="group relative flex flex-col overflow-hidden rounded-2xl border border-border bg-surface transition-all duration-300 ease-out hover:-translate-y-1 hover:border-[color:var(--uni)]/50 hover:shadow-[0_16px_40px_-12px_var(--uni)]"
+  class="group relative flex flex-col overflow-hidden rounded-xl border border-border bg-surface transition-colors duration-200 hover:border-text/20"
 >
   <div class="relative aspect-[16/9] w-full overflow-hidden bg-surface-hover">
     {
       bannerImage ? (
         <img
-          src={bannerImage}
+          src={withBase(bannerImage)}
           alt={title}
           loading="lazy"
           decoding="async"
-          class="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.04]"
+          class="h-full w-full object-cover"
         />
       ) : (
-        <div class="relative flex h-full w-full items-center justify-center bg-[linear-gradient(160deg,color-mix(in_srgb,var(--uni)_88%,black_8%),color-mix(in_srgb,var(--uni)_28%,black_78%))]">
-          <div class="bg-grid absolute inset-0 opacity-40"></div>
+        <div class="relative flex h-full w-full items-center justify-center" style="background:var(--uni)">
           <span
-            class="relative flex h-14 w-14 items-center justify-center rounded-2xl bg-white/10 font-mono text-sm font-bold text-white/90 ring-1 ring-white/20 backdrop-blur-sm"
+            class="relative flex h-14 w-14 items-center justify-center rounded-xl bg-white/10 font-mono text-sm font-bold text-white/90 ring-1 ring-white/20"
           >
             {identity.shortCode.slice(0, 4)}
           </span>

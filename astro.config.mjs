@@ -5,7 +5,8 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://openhack.lk',
+  site: 'https://openhack-lk.github.io',
+  base: '/openhack-web',
   output: 'static',
   vite: {
     plugins: [tailwindcss()]

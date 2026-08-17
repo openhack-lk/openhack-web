@@ -1,5 +1,6 @@
 ---
 import { getUniversityLogos } from '../lib/universities';
+import { withBase } from '../lib/paths';
 
 const logos = getUniversityLogos();
 const track = [...logos, ...logos];
@@ -16,7 +17,7 @@ const track = [...logos, ...logos];
         track.map((uni) => (
           <div class="flex h-11 w-28 shrink-0 items-center justify-center">
             <img
-              src={uni.logo}
+              src={withBase(uni.logo)}
               alt={uni.name}
               loading="lazy"
               decoding="async"

@@ -2,7 +2,6 @@
 import { getCollection } from 'astro:content';
 import Layout from '../components/Layout.astro';
 import HackathonCard from '../components/HackathonCard.astro';
-import HeroCollage from '../components/HeroCollage.astro';
 import UniversityMarquee from '../components/UniversityMarquee.astro';
 import PartnersStrip from '../components/PartnersStrip.astro';
 import Pagination from '../components/Pagination.astro';
@@ -16,6 +15,7 @@ import {
   parsePage,
   type StatusFilter,
 } from '../lib/hackathons';
+import { withBase } from '../lib/paths';
 
 const PAGE_SIZE = 10;
 
@@ -35,7 +35,7 @@ function pageHref(page: number, status: StatusFilter = activeStatus): string {
   if (status !== 'all') params.set('status', status);
   if (page > 1) params.set('page', String(page));
   const query = params.toString();
-  return `/${query ? `?${query}` : ''}#hackathons`;
+  return `${withBase('/')}${query ? `?${query}` : ''}#hackathons`;
 }
 
 const tabs: { label: string; value: StatusFilter }[] = [
@@ -59,34 +59,13 @@ const stats = [
   description="A community-curated, open-source directory of hackathons happening across Sri Lanka. Browse upcoming, ongoing and past events from Moratuwa, SLIIT, UCSC, Peradeniya, Kelaniya and more."
 >
   <section class="relative overflow-hidden border-b border-border">
-    <div class="pointer-events-none absolute inset-0">
-      <div
-        class="absolute -top-32 left-1/2 h-[560px] w-[900px] -translate-x-1/2 rounded-full bg-[radial-gradient(closest-side,color-mix(in_srgb,var(--color-accent-500)_22%,transparent),transparent)] blur-2xl"
-      >
-      </div>
-      <div
-        class="absolute -top-10 left-[10%] h-[280px] w-[280px] rounded-full bg-[radial-gradient(closest-side,color-mix(in_srgb,#4338ca_20%,transparent),transparent)] blur-3xl"
-      >
-      </div>
-      <div
-        class="absolute right-[8%] top-16 h-[260px] w-[260px] rounded-full bg-[radial-gradient(closest-side,color-mix(in_srgb,#15803d_18%,transparent),transparent)] blur-3xl"
-      >
-      </div>
-      <div class="bg-grid absolute inset-0"></div>
-      <div class="bg-noise absolute inset-0 opacity-[0.025] mix-blend-overlay"></div>
-    </div>
+    <div class="bg-grid pointer-events-none absolute inset-0 opacity-60"></div>
 
-    <HeroCollage />
-
-    <div class="relative mx-auto max-w-6xl px-4 py-24 text-center sm:px-6 sm:py-32 lg:px-8">
+    <div class="relative mx-auto max-w-6xl px-4 py-20 text-center sm:px-6 sm:py-28 lg:px-8">
       <span
-        class="animate-fade-up inline-flex items-center gap-2 rounded-full border border-border bg-surface/80 px-3 py-1 text-xs font-medium text-text-muted shadow-sm backdrop-blur"
+        class="animate-fade-up inline-flex items-center gap-2 rounded-full border border-border bg-surface px-3 py-1 text-xs font-medium text-text-muted"
       >
-        <span class="relative flex h-1.5 w-1.5">
-          <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent-500 opacity-75"
-          ></span>
-          <span class="relative inline-flex h-1.5 w-1.5 rounded-full bg-accent-500"></span>
-        </span>
+        <span class="h-1.5 w-1.5 rounded-full bg-accent-500"></span>
         Open-source · Community-curated
       </span>
 
@@ -111,7 +90,7 @@ const stats = [
       >
         {
           stats.map((stat) => (
-            <div class="flex min-w-[9.5rem] flex-1 items-center gap-3 rounded-2xl border border-border bg-surface/70 px-4 py-3 text-left backdrop-blur">
+            <div class="flex min-w-[9.5rem] flex-1 items-center gap-3 rounded-xl border border-border bg-surface px-4 py-3 text-left">
               <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-accent-500/10 text-accent-600 dark:text-accent-400">
                 <Icon name={stat.icon} class="h-4 w-4" />
               </span>
